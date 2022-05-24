@@ -1,8 +1,14 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink, Outlet } from "react-router-dom";
+import auth from "../../Firebase/firebase.init";
+import useAdmin from "../../Hooks/useAdmin";
 import PageTitle from "./../Shared/PageTitle";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+
   return (
     <div className="my-10 container mx-auto ">
       <PageTitle title="Dashboard"></PageTitle>
@@ -20,6 +26,7 @@ const Dashboard = () => {
             <li><NavLink to="/dashboard">My Order</NavLink></li>
             <li><NavLink to="/dashboard/addReview">Add Review</NavLink></li>
             <li><NavLink to="/dashboard/profile">Profile</NavLink></li>
+            {admin && <li><NavLink to="/dashboard/users">All Users</NavLink></li>}
           </ul>
         </div>
       </div>
