@@ -1,23 +1,19 @@
-import React, { useEffect } from "react";
-import {
-  useSignInWithEmailAndPassword,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
+import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import auth from "../../Firebase/firebase.init";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import Loading from "./../Shared/Loading";
-import PageTitle from "./../Shared/PageTitle";
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import auth from '../../Firebase/firebase.init';
+import Loading from '../Shared/Loading';
 
-const SignIn = () => {
+const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const { register, formState: { errors }, handleSubmit } = useForm();
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
 
   let signInError;
   const navigate = useNavigate();
@@ -28,31 +24,27 @@ const SignIn = () => {
     if (user || gUser) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser, from, navigate]);
+  }, [user, gUser, from, navigate])
 
   if (loading || gLoading) {
-    return <Loading></Loading>;
+    return <Loading></Loading>
   }
 
   if (error || gError) {
-    signInError = (
-      <p className="text-red-500">
-        <small>{error?.message || gError?.message}</small>
-      </p>
-    );
+    signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     signInWithEmailAndPassword(data.email, data.password);
-  };
+  }
 
   return (
-    <div className="flex justify-center items-center my-12">
-      <PageTitle title="SignIn"></PageTitle>
+    <div className='flex justify-center items-center'>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-center text-2xl font-bold">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
+
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -64,25 +56,17 @@ const SignIn = () => {
                 {...register("email", {
                   required: {
                     value: true,
-                    message: "Email is Required",
+                    message: 'Email is Required'
                   },
                   pattern: {
                     value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                    message: "Provide a valid Email",
-                  },
+                    message: 'Provide a valid Email'
+                  }
                 })}
               />
               <label className="label">
-                {errors.email?.type === "required" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.email.message}
-                  </span>
-                )}
-                {errors.email?.type === "pattern" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.email.message}
-                  </span>
-                )}
+                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
               </label>
             </div>
             <div className="form-control w-full max-w-xs">
@@ -96,54 +80,36 @@ const SignIn = () => {
                 {...register("password", {
                   required: {
                     value: true,
-                    message: "Password is Required",
+                    message: 'Password is Required'
                   },
                   minLength: {
                     value: 6,
-                    message: "Must be 6 characters or longer",
-                  },
+                    message: 'Must be 6 characters or longer'
+                  }
                 })}
               />
               <label className="label">
-                {errors.password?.type === "required" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.password.message}
-                  </span>
-                )}
-                {errors.password?.type === "minLength" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.password.message}
-                  </span>
-                )}
+                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
               </label>
             </div>
 
             {signInError}
-            <input
-              className="btn w-full max-w-xs text-white"
-              type="submit"
-              value="Login"
-            />
+            <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
           </form>
-          <p>
-            <small>
-              New to Doctors Portal{" "}
-              <Link className="text-primary" to="/signup">
-                Create New Account
-              </Link>
-            </small>
-          </p>
+          <p><small>New to Doctors Portal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
+          <label class="label">
+            <p><Link to="" class="link link-hover justify-end">Forgot password?</Link></p>
+          </label>
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
             className="btn btn-outline"
-          >
-            Continue with Google
-          </button>
+          >Continue with Google</button>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
-export default SignIn;
+export default Login;

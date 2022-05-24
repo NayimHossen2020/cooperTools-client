@@ -15,11 +15,12 @@ import SignIn from './Pages/Auth/SignIn'
 import SignUp from './Pages/Auth/SignUp'
 import Footer from './Pages/Shared/Footer'
 import Purchase from './Pages/Purchase/Purchase'
+import RequireAuth from './Pages/Auth/RequireAuth';
 
 function App () {
   return (
     <div className='backgroundApp'>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
@@ -29,7 +30,11 @@ function App () {
         <Route path='/addReview' element={<AddReview />} />
         <Route path='/addReview' element={<AddReview />} />
         <Route path='/profile' element={<MyProfile />} />
-        <Route path='/purchase' element={<Purchase />} />
+        <Route path='/purchase/:productId' element={
+          <RequireAuth>
+            <Purchase/>
+          </RequireAuth>
+        } />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/signIn' element={<SignIn />} />
         <Route path='/signUp' element={<SignUp />} />
