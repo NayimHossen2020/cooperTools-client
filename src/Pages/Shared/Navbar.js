@@ -42,18 +42,13 @@ const Navbar = () => {
               <li>
                 <NavLink to="/blogs">Blogs</NavLink>
               </li>
-              <li>
-                <NavLink to="/orders">My Orders</NavLink>
-              </li>
-              <li>
-                <NavLink to="/addReview">Add Review</NavLink>
-              </li>
-              <li>
-                <NavLink to="/profile">My Profile</NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard">Dashboard</NavLink>
-              </li>
+              {
+                user && <>
+                  <li>
+                    <NavLink to="/dashboard">Dashboard</NavLink>
+                  </li>
+                </>
+              }
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -73,19 +68,33 @@ const Navbar = () => {
             <li>
               <NavLink to="/blogs">Blogs</NavLink>
             </li>
-            <li>
-              <NavLink to="/orders">My Orders</NavLink>
-            </li>
-            <li>
-              <NavLink to="/addReview">Add Review</NavLink>
-            </li>
-            <li>
-              <NavLink to="/profile">My Profile</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard">Dashboard</NavLink>
-            </li>
+            {
+              user && <>
+                <li>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                </li>
+              </>
+            }
           </ul>
+        </div>
+
+        <div className="navbar-end">
+          <label for="my-drawer-2" class="drawer-button lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
         </div>
         <div className="navbar-end">
           {user ? (

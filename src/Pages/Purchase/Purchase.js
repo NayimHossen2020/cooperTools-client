@@ -43,7 +43,6 @@ const Purchase = () => {
         .then(res => res.json())
         .then(data => {
           toast.success(`Order successful`)
-          console.log(data);
         })
       event.target.reset();
     } else {
@@ -53,26 +52,26 @@ const Purchase = () => {
   }
 
   return (
-    <div class="hero min-h-screen my-10">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+    <div className="hero min-h-screen my-10">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div>
             <form className='card-body' onSubmit={handleOrder}>
-              <input type="text" readOnly value={user?.displayName} class="input input-bordered w-full max-w-xs" />
-              <input type="email" readOnly value={user?.email} class="input input-bordered w-full max-w-xs" />
-              <input type="number" name='phone' placeholder="Phone Number" class="input input-bordered w-full max-w-xs" required />
-              <input type="text" readOnly value={name} class="input input-bordered w-full max-w-xs" />
-              <input type="number" name='quantity' placeholder='Product Quantity' class="input input-bordered w-full max-w-xs" required />
-              <input type="submit" value="Order" class="btn btn-primary w-full max-w-xs" />
+              <input type="text" readOnly value={user?.displayName} className="input input-bordered w-full max-w-xs" />
+              <input type="email" readOnly value={user?.email} className="input input-bordered w-full max-w-xs" />
+              <input type="number" name='phone' placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required />
+              <input type="text" readOnly value={name} className="input input-bordered w-full max-w-xs" />
+              <input type="number" name='quantity' placeholder='Product Quantity' className="input input-bordered w-full max-w-xs" required />
+              <input type="submit" value="Order" className="btn btn-primary w-full max-w-xs" />
             </form>
           </div>
         </div>
 
-        <div class="text-center lg:text-left" style={{ maxWidth: "550px" }}>
-          <div class='card bg-base-100 shadow-xl'>
-            <img src={img} alt='Shoes' class='rounded-2xl m-5' />
-            <div class='card-body'>
-              <h2 class='card-title'>{name}</h2>
+        <div className="text-center lg:text-left" style={{ maxWidth: "550px" }}>
+          <div className='card bg-base-100 shadow-xl'>
+            <img src={img} alt='Shoes' className='rounded-2xl m-5' />
+            <div className='card-body'>
+              <h2 className='card-title'>{name}</h2>
               <p className='font-bold'>Price-${price}</p>
               <p className='font-bold'>Min-Quantity-{minimumQuantity}</p>
               <p className='font-bold'>Max-Quantity-{availableQuantity}</p>

@@ -98,8 +98,8 @@ const Login = () => {
             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
           </form>
           <p><small>New to Doctors Portal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
-          <label class="label">
-            <p><Link to="" class="link link-hover justify-end">Forgot password?</Link></p>
+          <label className="label">
+            <p><Link to="" className="link link-hover justify-end">Forgot password?</Link></p>
           </label>
           <div className="divider">OR</div>
           <button
