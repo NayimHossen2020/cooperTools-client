@@ -7,6 +7,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../Firebase/firebase.init";
+import useToken from "../../Hooks/useToken";
 import Loading from "./../Shared/Loading";
 import PageTitle from "./../Shared/PageTitle";
 
@@ -21,6 +22,7 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user, gUser);
 
   const navigate = useNavigate();
 
@@ -40,15 +42,14 @@ const SignUp = () => {
     );
   }
 
-  if (user || gUser) {
-    console.log(user || gUser);
+  if (token) {
+    navigate('/myOrders')
   }
 
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     console.log("update done");
-    navigate("/appointment");
   };
   return (
     <div className="flex justify-center items-center my-12">

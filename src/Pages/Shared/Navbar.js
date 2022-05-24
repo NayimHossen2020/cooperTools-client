@@ -6,6 +6,11 @@ import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth)
+    localStorage.removeItem('accessToken')
+  }
   return (
     <div className="">
       <div className="navbar container mx-auto">
@@ -79,7 +84,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          <label for="my-drawer-2" class="drawer-button lg:hidden">
+          <label htmlFor="my-drawer-2" className="drawer-button lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -98,7 +103,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <Link to="" onClick={() => signOut(auth)} className="btn btn-sm">
+            <Link to="" onClick={handleSignOut} className="btn btn-sm">
               Sign Out
             </Link>
           ) : (
@@ -108,7 +113,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
