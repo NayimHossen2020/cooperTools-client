@@ -8,11 +8,11 @@ const Purchase = () => {
   const [product, setProduct] = useState([]);
   const [user] = useAuthState(auth);
   const { productId } = useParams();
+  console.log(productId);
   const { _id, name, img, price, minimumQuantity, availableQuantity, description } = product
 
   useEffect(() => {
     const url = `http://localhost:5000/products/${productId}`;
-    console.log(url);
     fetch(url)
       .then(res => res.json())
       .then(data => setProduct(data));

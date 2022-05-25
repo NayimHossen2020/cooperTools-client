@@ -13,16 +13,12 @@ import PageTitle from "./../Shared/PageTitle";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  const [token] = useToken(user, gUser);
+  const [token] = useToken(user || gUser);
 
   const navigate = useNavigate();
 
