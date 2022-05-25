@@ -43,7 +43,7 @@ const Users = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Email</th>
+                            <th>manage</th>
                         </tr>
                     </thead>
                     <tbody>

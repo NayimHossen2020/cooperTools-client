@@ -2,8 +2,21 @@
 
 This project Live link [toolsManufacture.app]().
 
-## Available Scripts
+Features
+Online appointment making
 
-In the project directory, you can run:
+Patients Database
 
-### `npm start`
+Review appointments
+
+Prescribe medicine for each patient
+
+Front-end Thechnology :
+#React.js
+#tailwind.css
+#CSS3
+
+Back-end Technology
+#Node.js
+#Express.js
+#MongoDB
