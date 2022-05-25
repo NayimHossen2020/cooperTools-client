@@ -9,7 +9,7 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
   const { productId } = useParams();
   console.log(productId);
-  const { _id, name, img, price, minimumQuantity, availableQuantity, description } = product
+  const { _id, name, img, price, minimumQuantity, availableQuantity, description } = product;
 
   useEffect(() => {
     const url = `http://localhost:5000/products/${productId}`;
