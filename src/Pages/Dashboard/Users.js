@@ -8,7 +8,7 @@ const Users = () => {
     // const [users, setUser] = useState([]);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/user`, {
+    //     fetch(`https://frozen-dawn-70899.herokuapp.com/user`, {
     //         method: 'GET',
     //         headers: {
     //             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -18,7 +18,7 @@ const Users = () => {
     //         .then(data => setUser(data))
     // }, [])
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/user`, {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://frozen-dawn-70899.herokuapp.com/user`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

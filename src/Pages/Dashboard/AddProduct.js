@@ -34,7 +34,7 @@ const AddProduct = () => {
                         img: img
                     }
                     // send to your database 
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://frozen-dawn-70899.herokuapp.com/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

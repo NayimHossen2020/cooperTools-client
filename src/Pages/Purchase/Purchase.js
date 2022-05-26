@@ -8,11 +8,10 @@ const Purchase = () => {
   const [product, setProduct] = useState([]);
   const [user] = useAuthState(auth);
   const { productId } = useParams();
-  console.log(productId);
   const { _id, name, img, price, minimumQuantity, availableQuantity, description } = product;
 
   useEffect(() => {
-    const url = `http://localhost:5000/products/${productId}`;
+    const url = `https://frozen-dawn-70899.herokuapp.com/products/${productId}`;
     fetch(url)
       .then(res => res.json())
       .then(data => setProduct(data));
@@ -33,7 +32,7 @@ const Purchase = () => {
     }
 
     if (quantity <= availableQuantity && quantity >= minimumQuantity) {
-      fetch(`http://localhost:5000/order`, {
+      fetch(`https://frozen-dawn-70899.herokuapp.com/order`, {
         method: "POST",
         headers: {
           'content-type': 'application/json'

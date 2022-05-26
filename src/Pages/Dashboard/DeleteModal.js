@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteModal = ({ deletingProduct, refetch, setDeletingProduct }) => {
     const { name, _id } = deletingProduct;
     const handleDelete = () => {
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://frozen-dawn-70899.herokuapp.com/products/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -12,7 +12,6 @@ const DeleteModal = ({ deletingProduct, refetch, setDeletingProduct }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.deletedCount) {
                     toast.success(`products: ${name} is deleted.`)
                     setDeletingProduct(null);

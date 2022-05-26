@@ -32,7 +32,7 @@ const AddProduct = () => {
             img: img
           }
           // send to your database 
-          fetch('http://localhost:5000/reviews', {
+          fetch('https://frozen-dawn-70899.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
