@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import auth from "./../../Firebase/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
+import logo from '../../Assate/logo/tooLogo.png';
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -57,7 +58,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            CompanyLogo
+            <img src={logo} alt="" style={{ height: "50px" }} />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

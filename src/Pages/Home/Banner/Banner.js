@@ -1,5 +1,9 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import banner1 from '../../../Assate/image/toolBanner.png';
+import banner2 from '../../../Assate/image/toolBanner-2.png';
+import banner3 from '../../../Assate/image/toolBanner-3.png';
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -33,64 +37,46 @@ export default function App() {
           className="parallax-bg"
           style={{
             backgroundImage:
-              "url(https://swiperjs.com/demos/images/nature-1.jpg)",
+              `url(${banner2})`,
           }}
           data-swiper-parallax="-23%"
         ></div>
         <SwiperSlide>
           <div className="title" data-swiper-parallax="-300">
-            Slide 1
+            NO1 POWER TOOLS MANUFACTURER'S
           </div>
           <div className="subtitle" data-swiper-parallax="-200">
-            Subtitle
+            Tools & Materials
           </div>
           <div className="text" data-swiper-parallax="-100">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+              Pro Tool Reviews provides power tool reviews and hand tool reviews and comparisons for the construction industry professional. Find information about tools and the world of commercial and residential construction.
             </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="title" data-swiper-parallax="-300">
-            Slide 2
+            Manufacturers and Companies in Bangladesh
           </div>
           <div className="subtitle" data-swiper-parallax="-200">
-            Subtitle
+            The Best Scroll Saw
           </div>
           <div className="text" data-swiper-parallax="-100">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+              World's Largest Brand Marketplace. Choose Your Favorite Product and Order Now! Global Brands Coverage. 100% On-time Shipment Protection. Shop Online Today! Logistics Service.
             </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="title" data-swiper-parallax="-300">
-            Slide 3
+            strategies deployed by the leading power tool
           </div>
           <div className="subtitle" data-swiper-parallax="-200">
-            Subtitle
+            Woodsmith's Hand Tool Headlines
           </div>
           <div className="text" data-swiper-parallax="-100">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+              Tools in Action is an online publication dedicated to professional power tool reviews. Find helpful guides and information for professionals and homeowners information about power tools and OPE products. We review the latest in the tool world and report back to you.
             </p>
           </div>
         </SwiperSlide>
